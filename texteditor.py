@@ -7,7 +7,7 @@ Old1 = str(input('What is your old word?'))
 New1 = str(input('What is your new word?'))
 Old2 = str(input('What is your old word?'))
 New2 = str(input('What is your new word?'))
-  
+
 infile = open(file1,'r')
 content = ''
 content = infile.read()
@@ -19,3 +19,5 @@ infile = open(file1,'w')
 infile.truncate()
 infile.write(content)
 infile.close()
+
+#dr edits
