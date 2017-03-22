@@ -1,14 +1,23 @@
 import os
 #tells python to use the module 'os' 
+import sys
+#tells python to use the module 'sys' used to do one line command in the terminal 
 
 os.chdir("/Users/yosemite/Documents/textswappingwork/")
 #changes to a particular directory
 #Todo: edit this so the program can be called anywhere
+arglist = sys.argv
+#creates a list which stores the variables which are inputed directly in the one line command in the terminal
 
+file1 = str(arglist[1])
+file2 = str(arglist[2])
+#takes as variable the elements of list 'arglist'
+"""
 #file1 = "read.txt"
 file1 = str(input('which file?'))
 #asks user this question, takes input and assigns it to the string variable 'file1'
 file2 = str(input('what is the name of the dictionnay?'))
+"""
 
 #Todo: have it ask which *file* to go to for the list of substitutions ... even better, allow going through folder tree
 #Or even better run this with parameters in commandline ... 
@@ -20,7 +29,8 @@ d={}
 for line in mydictionnary:
     x=line.split(',')
     a = x[0]
-    b = x[1]
+    b = x[1].strip()
+    #no presentation errors eg. new line or extra spaces
     d[a]=b
     # x is a string which contains the whole line
     # x[0] is the first word of the line x[1] is the second
@@ -55,4 +65,3 @@ thefile.close()
 mynewfile = open("newfile.txt",'w+')
 mynewfile.write(content)
 mynewfile.close()
-
