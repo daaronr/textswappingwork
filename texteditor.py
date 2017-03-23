@@ -29,9 +29,9 @@ for line in mydictionary:
     #DR: Later on we may want to allow quoted strings containing characters like newline
 
     d[a]=b
-    # x is a string which contains the whole line
-    # x[0] is the first word of the line x[1] is the second
-    # d[a]=b appends in the dictionary (d) the old and new word in the form d{'oldword' = newword}
+# x is a string which contains the whole line
+# x[0] is the first word of the line x[1] is the second
+# d[a]=b appends in the dictionary (d) the old and new word in the form d{'oldword' = newword}
 
 mydictionary.close()
 
