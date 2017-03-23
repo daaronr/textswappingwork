@@ -66,7 +66,6 @@ thefile.write(content)
 #puts in the text from the string variable 'content'
 thefile.close()
 #need to close the file for some reason
-<<<<<<< Updated upstream
 '''
 
 #to create a new file this is the code :
