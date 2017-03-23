@@ -1,9 +1,26 @@
 import os
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#tells python to use the module 'os'
+import sys
+#tells python to use the module 'sys' used to do one line command in the terminal
+>>>>>>> DR_adjustmentsandcomments
 
-os.chdir("/Users/davidserero/Documents/")
+os.chdir("/Users/yosemite/Documents/textswappingwork/")
+#changes to a particular directory
+#Todo: edit this so the program can be called anywhere
+arglist = sys.argv
+#creates a list which stores the variables which are inputed directly in the one line command in the terminal
 
+file1 = str(arglist[1])
+file2 = str(arglist[2])
+#takes as variable the elements of list 'arglist'
+
+"""
+#file1 = "read.txt"
 file1 = str(input('which file?'))
+<<<<<<< HEAD
 Old1 = str(input('What is your old word?'))
 New1 = str(input('What is your new word?'))
 Old2 = str(input('What is your old word?'))
@@ -49,6 +66,30 @@ for line in mydictionnary:
     # x is a string which contains the whole line
     # x[0] is the first word of the line x[1] is the second
     # d[a]=b appends in the dictionnary (d) the old and new word in the form d{'oldword' = newword}
+=======
+#asks user this question, takes input and assigns it to the string variable 'file1'
+file2 = str(input('what is the name of the dictionnay?'))
+"""
+
+#Or even better run this with parameters in commandline ...
+#... >python texteditor.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
+
+mydictionnary = open(file2,'r')
+d={}
+# creates a dictionary called d
+
+for line in mydictionnary:
+    x=line.split(',')
+    a = x[0]
+    b = x[1].strip()
+    #no presentation errors eg. new line or extra spaces
+#DR: Later on we may want to allow quoted strings containing characters like newline
+
+    d[a]=b
+    # x is a string which contains the whole line
+    # x[0] is the first word of the line x[1] is the second
+    # d[a]=b appends in the dictionary (d) the old and new word in the form d{'oldword' = newword}
+>>>>>>> DR_adjustmentsandcomments
 mydictionnary.close()
 
 thefile = open(file1,'r')
@@ -59,9 +100,19 @@ content = thefile.read()
 
 for k, v in d.items():
     content = content.replace(k ,v)
+<<<<<<< HEAD
 #makes requested substitutions using the dictionnary d
 
 #to change the existing file this is the code :
+=======
+#makes requested substitutions using the dictionary d
+
+#To change the existing file this is the code:
+
+#DR: For future work, let's allow a parameter to the command that specifies whether it edits in place or creates a new file;
+#... or even better, have it edit in place if the new and old filenames and locations are identical
+
+>>>>>>> DR_adjustmentsandcomments
 '''
 thefile.close()
 #closes the file to allow edits
@@ -79,5 +130,8 @@ thefile.close()
 mynewfile = open("newfile.txt",'w+')
 mynewfile.write(content)
 mynewfile.close()
+<<<<<<< HEAD
 
 >>>>>>> parent of e9f7460... Update texteditor.py
+=======
+>>>>>>> DR_adjustmentsandcomments
