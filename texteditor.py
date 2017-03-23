@@ -1,15 +1,13 @@
 import os
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 #tells python to use the module 'os'
+
 import sys
 #tells python to use the module 'sys' used to do one line command in the terminal
->>>>>>> DR_adjustmentsandcomments
 
 os.chdir("/Users/yosemite/Documents/textswappingwork/")
 #changes to a particular directory
 #Todo: edit this so the program can be called anywhere
+
 arglist = sys.argv
 #creates a list which stores the variables which are inputed directly in the one line command in the terminal
 
@@ -17,80 +15,25 @@ file1 = str(arglist[1])
 file2 = str(arglist[2])
 #takes as variable the elements of list 'arglist'
 
-"""
-#file1 = "read.txt"
-file1 = str(input('which file?'))
-<<<<<<< HEAD
-Old1 = str(input('What is your old word?'))
-New1 = str(input('What is your new word?'))
-Old2 = str(input('What is your old word?'))
-New2 = str(input('What is your new word?'))
+#Run this with parameters in commandline ... python texteditor.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
 
-infile = open(file1,'r')
-content = ''
-content = infile.read()
-content = content.replace(Old1 ,New1)
-content = content.replace(Old2 ,New2)
-infile.close()
-
-infile = open(file1,'w')
-infile.truncate()
-infile.write(content)
-infile.close()
-
-#dr edits
-=======
-#tells python to use the module 'os' 
-
-os.chdir("/Users/yosemite/Documents/textswappingwork/")
-#changes to a particular directory
-#Todo: edit this so the program can be called anywhere
-
-#file1 = "read.txt"
-file1 = str(input('which file?'))
-#asks user this question, takes input and assigns it to the string variable 'file1'
-file2 = str(input('what is the name of the dictionnay?'))
-
-#Todo: have it ask which *file* to go to for the list of substitutions ... even better, allow going through folder tree
-#Or even better run this with parameters in commandline ... 
-#... >python texteditor.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps) 
-
-mydictionnary = open(file2,'r')
-d={}
-# creates a dictionnary called d
-for line in mydictionnary:
-    x=line.split(',')
-    a = x[0]
-    b = x[1]
-    d[a]=b
-    # x is a string which contains the whole line
-    # x[0] is the first word of the line x[1] is the second
-    # d[a]=b appends in the dictionnary (d) the old and new word in the form d{'oldword' = newword}
-=======
-#asks user this question, takes input and assigns it to the string variable 'file1'
-file2 = str(input('what is the name of the dictionnay?'))
-"""
-
-#Or even better run this with parameters in commandline ...
-#... >python texteditor.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
-
-mydictionnary = open(file2,'r')
+mydictionary = open(file2,'r')
 d={}
 # creates a dictionary called d
 
-for line in mydictionnary:
+for line in mydictionary:
     x=line.split(',')
     a = x[0]
     b = x[1].strip()
-    #no presentation errors eg. new line or extra spaces
-#DR: Later on we may want to allow quoted strings containing characters like newline
+#no presentation errors eg. new line or extra spaces
+    #DR: Later on we may want to allow quoted strings containing characters like newline
 
     d[a]=b
     # x is a string which contains the whole line
     # x[0] is the first word of the line x[1] is the second
     # d[a]=b appends in the dictionary (d) the old and new word in the form d{'oldword' = newword}
->>>>>>> DR_adjustmentsandcomments
-mydictionnary.close()
+
+mydictionary.close()
 
 thefile = open(file1,'r')
 #opens file1, read mode
@@ -100,19 +43,13 @@ content = thefile.read()
 
 for k, v in d.items():
     content = content.replace(k ,v)
-<<<<<<< HEAD
-#makes requested substitutions using the dictionnary d
 
-#to change the existing file this is the code :
-=======
 #makes requested substitutions using the dictionary d
 
-#To change the existing file this is the code:
+#to change the existing file this is the code :
+    #DR: For future work, let's allow a parameter to the command that specifies whether it edits in place or creates a new file;
+    #... or even better, have it edit in place if the new and old filenames and locations are identical
 
-#DR: For future work, let's allow a parameter to the command that specifies whether it edits in place or creates a new file;
-#... or even better, have it edit in place if the new and old filenames and locations are identical
-
->>>>>>> DR_adjustmentsandcomments
 '''
 thefile.close()
 #closes the file to allow edits
@@ -126,12 +63,7 @@ thefile.close()
 #need to close the file for some reason
 '''
 
-#to create a new file this is the code :
+#to create a new file this is the code:
 mynewfile = open("newfile.txt",'w+')
 mynewfile.write(content)
 mynewfile.close()
-<<<<<<< HEAD
-
->>>>>>> parent of e9f7460... Update texteditor.py
-=======
->>>>>>> DR_adjustmentsandcomments
