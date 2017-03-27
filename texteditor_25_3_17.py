@@ -17,15 +17,15 @@ os.chdir("/Users/yosemite/Documents/textswappingwork/")
 arglist = sys.argv
 #creates a list which stores the variables which are input directly in the one-line command in the terminal
 
-oldfile = str(arglist[1])
-dic = str(arglist[2])
-newfile = str(arglist[3])
+file1 = str(arglist[1])
+file2 = str(arglist[2])
+#newfile = str(arglist[3])
 #takes as variable the elements of list 'arglist'
     #Todo: default 'newfile=oldfile' if no third argument
 
-#Run this with parameters in commandline ... python texteditor1.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
+#Run this with parameters in commandline ... python texteditor.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
 
-mydictionary = open(dic,'r')
+mydictionary = open(file2,'r')
 d={}
 # creates a dictionary called d
 
@@ -36,7 +36,6 @@ for line in mydictionary:
 #no presentation errors eg. new line or extra spaces
     #DR: Later on we may want to allow quoted strings containing characters like newline
     #DR: I'm not sure if we want this 'cleanup' -- is it necessary?
-    #DR: Also, we need a way to allow *intended* commas in the dictionary file itself; perhaps "\," suffices
 
     d[a]=b
 # x is a string which contains the whole line
@@ -45,8 +44,8 @@ for line in mydictionary:
 
 mydictionary.close()
 
-thefile = open(oldfile,'r')
-#opens oldfile, read mode
+thefile = open(file1,'r')
+#opens file1, read mode
 
 content = thefile.read()
 #copies everything in the file and assigns it to the string variable 'content'
@@ -54,7 +53,6 @@ content = thefile.read()
 for k, v in d.items():
     content = content.replace(k ,v)
 #makes requested substitutions using the dictionary d
-   #DR: How does this command work? Also, why did you choose the letters 'k' and 'v'
 
 #to change the existing file this is the code :
     #DR: For future work, let's allow a parameter to the command that specifies whether it edits in place or creates a new file;
@@ -74,8 +72,6 @@ thefile.close()
 '''
 
 #to create a new file this is the code:
-mynewfile = open(newfile,'w+')
-#mynewfile = open("newfile.txt",'w+')
-    #DR: can we have this file named based on the third input argument?
+mynewfile = open("newfile.txt",'w+')
 mynewfile.write(content)
 mynewfile.close()
