@@ -10,7 +10,7 @@ import os
 import sys
 #tells python to use the module 'sys' used to do one line command in the terminal
 
-os.chdir("/Users/yosemite/Documents/textswappingwork/")
+
 #changes to a particular directory
 #Todo: edit this so the program can be called anywhere, look for files in the given directory or based on input
 
@@ -18,21 +18,27 @@ arglist = sys.argv
 #creates a list which stores the variables which are input directly in the one-line command in the terminal
 
 oldfile = str(arglist[1])
-dic = str(arglist[2])
-newfile = str(arglist[3])
+newfile = str(arglist[2])
+dic = str(arglist[3])
+colonne = int(arglist[4])
+chosenDirectory = str(arglist[5])
 #takes as variable the elements of list 'arglist'
     #Todo: default 'newfile=oldfile' if no third argument
+os.chdir(chosenDirectory)
+#Run this with parameters in commandline ... python texteditor1.py oldfilename newfilename substitutionlistfilename columnNumberinCSV directoryofNewfile(+ other parameter perhaps)
 
-#Run this with parameters in commandline ... python texteditor1.py oldfilename newfilename substitutionlistfilename (+ other parameter perhaps)
-
-mydictionary = open(dic,'r')
+mydictionary = open(dic,'rb')
+data = csv.reader(mydictionnary)
 d={}
 # creates a dictionary called d
+colonne = colonne - 1
 
 for line in mydictionary:
     x=line.split(',')
     a = x[0]
-    b = x[1].strip()
+    b = x[colonne]
+    for p in b:
+        b = b.replace('+' ,',')
 #no presentation errors eg. new line or extra spaces
     #DR: Later on we may want to allow quoted strings containing characters like newline
     #DR: I'm not sure if we want this 'cleanup' -- is it necessary?
